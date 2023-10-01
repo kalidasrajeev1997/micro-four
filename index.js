@@ -52,7 +52,7 @@ numbersButton.forEach((element) => {
     let currentEntry = valuesArray[index];
 
     if (
-      ["+", "-", "*", "÷"].includes(valuesArray[index - 1]) &&
+      ["+", "-", "x", "÷"].includes(valuesArray[index - 1]) &&
       valuesArray[index] === "-"
     ) {
       valuesArray[index] = currentEntry.concat(number);
@@ -124,8 +124,9 @@ equal.addEventListener("click", function () {
       (item[0] === "-" && typeof item.slice(1) === "number")
     ) {
       numbers.push(parseFloat(item));
-    } else if (["+", "-", "*", "÷"].includes(item)) {
+    } else if (["+", "-", "x", "÷"].includes(item)) {
       if (item === "÷") operator.push("/");
+      else if (item === "x") operator.push("*");
       else operator.push(item);
     }
   });
