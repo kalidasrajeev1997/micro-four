@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./index.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div>
+          <input class="display" id="display" type="text" disabled value="0" />
+        </div>
+        <div class="buttons">
+          <div class="row">
+            <button class="button numbers" data-number="7">7</button>
+            <button class="button numbers" data-number="8">8</button>
+            <button class="button numbers" data-number="9">9</button>
+            <button id="delete" class="button">DEL</button>
+          </div>
+          <div class="row">
+            <button class="button numbers" data-number="4">4</button>
+            <button class="button numbers" data-number="5">5</button>
+            <button class="button numbers" data-number="6">6</button>
+            <button class="button operators" data-operator="+">+</button>
+          </div>
+          <div class="row">
+            <button class="button numbers" data-number="1">1</button>
+            <button class="button numbers" data-number="2">2</button>
+            <button class="button numbers" data-number="3">3</button>
+            <button class="button operators" data-operator="-">-</button>
+          </div>
+          <div class="row">
+            <button class="button numbers" data-number=".">.</button>
+            <button class="button numbers" data-number="0">0</button>
+            <button class="button operators" data-operator="/">/</button>
+            <button class="button operators" data-operator="*">x</button>
+          </div>
+          <div class="row">
+            <button id="clear" class="end-buttons">RESET</button>
+            <button id="equal" class="end-buttons">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
