@@ -50,6 +50,7 @@ body {
   box-sizing: border-box;
   margin-top: 10px;
   border-radius: 12px;
+  box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .row {
