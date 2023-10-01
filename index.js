@@ -34,13 +34,27 @@ function countPeriods(inputString) {
   }, 0);
 }
 
+function performBackspace() {
+  if (valuesArray.length > 0) {
+    valuesArray[valuesArray.length - 1] = valuesArray[
+      valuesArray.length - 1
+    ].slice(0, -1);
+    if (valuesArray[valuesArray.length - 1] === "") {
+      valuesArray.pop();
+    }
+  }
+}
+
 numbersButton.forEach((element) => {
   element.addEventListener("click", function () {
     const number = this.getAttribute("data-number");
     const index = valuesArray.length - 1;
     let currentEntry = valuesArray[index];
 
-    if (valuesArray.length === 1 && valuesArray[0] === "-") {
+    if (
+      ["+", "-", "*", "÷"].includes(valuesArray[index - 1]) &&
+      valuesArray[index] === "-"
+    ) {
       valuesArray[index] = currentEntry.concat(number);
       input.value = input.value.concat(number);
       return;
@@ -73,7 +87,7 @@ operatorsButton.forEach((element) => {
     const index = valuesArray.length - 1;
     const currentEntry = valuesArray[index];
 
-    if (!valuesArray.length && operator === "-") {
+    if (operator === "-" && !["-", "+"].includes(valuesArray[index])) {
       valuesArray.push("-");
       input.value = input.value.concat("-");
       return;
@@ -149,15 +163,8 @@ equal.addEventListener("click", function () {
 });
 
 del.addEventListener("click", function () {
-  let array = valuesArray.toString().replace(/,/g, "");
   if (input.value.slice(0, -1).length && !containsAlphabets(input.value)) {
-    if (array.charAt(0) === "-") {
-      array = "0".concat(array);
-    }
-    valuesArray = array
-      .slice(0, -1)
-      .split(/([\+\-\*\/](?=\d)|(?<=\d)[\+\-\*\/])/);
-    console.log(valuesArray);
+    performBackspace();
     input.value = input.value.slice(0, -1);
   } else {
     valuesArray.length = 0;
