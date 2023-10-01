@@ -110,8 +110,9 @@ equal.addEventListener("click", function () {
       (item[0] === "-" && typeof item.slice(1) === "number")
     ) {
       numbers.push(parseFloat(item));
-    } else if (["+", "-", "*", "/"].includes(item)) {
-      operator.push(item);
+    } else if (["+", "-", "*", "÷"].includes(item)) {
+      if (item === "÷") operator.push("/");
+      else operator.push(item);
     }
   });
 
